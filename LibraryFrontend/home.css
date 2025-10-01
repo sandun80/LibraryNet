@@ -1,0 +1,184 @@
+/* General Page Style */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #f5f6fa;
+    color: #333;
+}
+
+/* Header */
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Left part (logo/title) */
+.header-left h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Right part (nav + profile) */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Navigation buttons */
+.nav-btn {
+    color: white;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+/* Search Form */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.search-form input {
+    padding: 6px 10px;
+    border-radius: 6px 0 0 6px;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.search-form button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    background: white;
+    color: #2575fc;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.search-form button:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+
+/* Profile icon */
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+
+/* Book Container */
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Book Card */
+.book-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-card img.book-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.book-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    color: #2575fc;
+}
+
+.book-card .author {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.borrow {
+    display: inline-block;
+    padding: 8px 18px;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.borrow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.borrow:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #777;
+}

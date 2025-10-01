@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraryNet</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header>
+    <div class="header-left">
+        <h1>📚 LibraryNet</h1>
+    </div>
+
+    <div class="header-right">
+        <form class="search-form" id="searchForm">
+            <input type="text" placeholder="Search books..." id="searchInput">
+            <button type="submit" id="srhbtn">🔍</button>
+        </form>
+
+        <nav>
+            <a href="/login" class="nav-btn">Login</a>
+            <a href="/register" class="nav-btn">Register</a>
+            <a href="/mybooks" class="nav-btn">My Books</a>
+        </nav>
+
+        <div class="profile">
+            <img src="" alt="Profile" class="profile-pic">
+        </div>
+    </div>
+</header>
+
+
+
+    <section class="book-container" id="book-container">
+        <!-- Books will be dynamically loaded here -->
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LibraryNet | All Rights Reserved</p>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>
