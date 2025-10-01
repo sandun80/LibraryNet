@@ -15,6 +15,7 @@ public class BorrowedBook {
     @Id
     private int id;
     private String bookName;
+    private String author;
     @Lob
     private byte[] pdf;
     private String email;

@@ -6,6 +6,7 @@ import org.example.library.Service.UserPrincipals;
 import org.example.library.Service.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -168,5 +169,28 @@ public class WebController {
         }else {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
+    }
+
+    @GetMapping("/books/{id}")
+    public ResponseEntity<byte[]> findTheBook(@RequestHeader("Authorization") String header, @PathVariable String id){
+        String token = header.substring(7);
+        String email = jwtService.extractUserName(token);
+        byte[] pdf = service.getBookPdf(email,id);
+
+        if (pdf != null) {
+            return ResponseEntity.ok()
+                    .contentType(MediaType.APPLICATION_PDF)
+                    .body(pdf);
+        }else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+    @DeleteMapping("/markread/{id}")
+    public ResponseEntity<Integer> markAsRead(@RequestHeader("Authorization") String header,@PathVariable String id){
+        String token = header.substring(7);
+        String email = jwtService.extractUserName(token);
+        return new ResponseEntity<>(service.markBookAsRead(email,id),HttpStatus.OK);
     }
 }

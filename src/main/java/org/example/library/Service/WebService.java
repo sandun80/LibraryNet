@@ -67,4 +67,12 @@ public class WebService {
     public List<BorrowedBook> getBorrowedBooks(String email) {
         return repo3.findByEmail(email);
     }
+
+    public byte[] getBookPdf(String email, String id) {
+        return repo3.getPdf(email,id);
+    }
+
+    public int markBookAsRead(String email, String id) {
+        return repo3.deleteBookByDetails(email,id);
+    }
 }
