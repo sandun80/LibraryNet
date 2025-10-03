@@ -75,4 +75,8 @@ public class WebService {
     public int markBookAsRead(String email, String id) {
         return repo3.deleteBookByDetails(email,id);
     }
+
+    public void changePassword(String password, String email) {
+        userRepo.updatePassword(password,email);
+    }
 }

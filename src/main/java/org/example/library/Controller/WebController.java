@@ -34,6 +34,8 @@ public class WebController {
     private UserDetailsService userDetailsService;
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+    private static String emailForChangePassword;
+
     @PostMapping("/addbook")
     public ResponseEntity<?> addBooks(@RequestPart Book book, @RequestPart MultipartFile image, @RequestPart MultipartFile pdf) {
         try{
@@ -192,5 +194,27 @@ public class WebController {
         String token = header.substring(7);
         String email = jwtService.extractUserName(token);
         return new ResponseEntity<>(service.markBookAsRead(email,id),HttpStatus.OK);
+    }
+
+    @GetMapping("/pass/{email}")
+    public ResponseEntity<Users> checkUserAvailability(@PathVariable String email){
+        Users user = service.checkUser(email);
+        if (user != null) {
+            emailForChangePassword = email;
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/changepass/{password}")
+    public ResponseEntity<Users> changeThePassword(@PathVariable String password){
+        Users user = service.checkUser(emailForChangePassword);
+        if (user != null) {
+            password = encoder.encode(password);
+            service.changePassword(password,emailForChangePassword);
+        }
+
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }
